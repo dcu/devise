@@ -27,7 +27,7 @@ module Devise
 
         module ClassMethods
           def find(*args)
-            options = args.extract_options!
+            options = args.last.kind_of?(Hash) ? args.last : {}
             case args.first
               when :first
                 first(options)
